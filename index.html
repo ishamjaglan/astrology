@@ -39,7 +39,18 @@
 </script><!-- 100% privacy-first analytics -->
 <script data-collect-dnt="true" async defer src="https://scripts.simpleanalyticscdn.com/latest.js"></script>
 <noscript><img src="https://queue.simpleanalyticscdn.com/noscript.gif?collect-dnt=true" alt="" referrerpolicy="no-referrer-when-downgrade" /></noscript>
-<iframe src="silence.mp3" type="audio/mp3" allow="autoplay" id="audio" style="display:none"></iframe>
-<audio autoplay loop><source src="music.mp3" type="audio/mp3"></audio>
+<audio id="myAudio" loop>
+      <source src="music.mp3" type="audio/mp3" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <script>
+      document.body.addEventListener("click", () => {
+        const audio = document.getElementById("myAudio");
+        audio.play().catch((error) => {
+          console.log("Play failed: ", error);
+        });
+      });
+    </script>
 </body>
 </html>
