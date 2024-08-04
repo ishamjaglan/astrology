@@ -77,7 +77,6 @@ body {
 .main-content {
   display: none; /* Hidden initially */
   text-align: center;
-  padding: 20px;
   color: #231f20; /* Dark text color */
   animation: fadeInContent 1s ease-out;
 }
