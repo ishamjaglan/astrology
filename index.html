@@ -6292,65 +6292,64 @@
     </script>
     <script>
       // Handle the splash screen and content display
-function handleSplashScreen() {
-  const splashScreen = document.getElementById("splashScreen");
-  const content = document.getElementById("mainContent");
-  const enterButton = document.getElementById("enterButton");
+      function handleSplashScreen() {
+        const splashScreen = document.getElementById("splashScreen");
+        const content = document.getElementById("mainContent");
+        const enterButton = document.getElementById("enterButton");
 
-  enterButton.addEventListener("click", () => {
-    splashScreen.classList.add("hidden"); // Hide splash screen
-    content.classList.add("show"); // Show main content
-    document.body.style.overflow = 'auto'; // Allow scrolling on body
-    playAudio();
-  });
-}
+        enterButton.addEventListener("click", () => {
+          splashScreen.classList.add("hidden"); // Hide splash screen
+          content.classList.add("show"); // Show main content
+          document.body.style.overflow = "auto"; // Allow scrolling on body
+          playAudio();
+        });
+      }
 
-// Play audio
-function playAudio() {
-  const audio = document.getElementById("myAudio");
-  if (audio.paused) {
-    audio.play().catch((error) => {
-      console.log("Play failed: ", error);
-    });
-  }
-}
+      // Play audio
+      function playAudio() {
+        const audio = document.getElementById("myAudio");
+        if (audio.paused) {
+          audio.play().catch((error) => {
+            console.log("Play failed: ", error);
+          });
+        }
+      }
 
-// Pause audio when the page is not visible
-function handleVisibilityChange() {
-  const audio = document.getElementById("myAudio");
-  if (document.visibilityState === 'hidden') {
-    audio.pause();
-  } else {
-    audio.play().catch((error) => {
-      console.log("Play failed: ", error);
-    });
-  }
-}
+      // Pause audio when the page is not visible
+      function handleVisibilityChange() {
+        const audio = document.getElementById("myAudio");
+        if (document.visibilityState === "hidden") {
+          audio.pause();
+        } else {
+          audio.play().catch((error) => {
+            console.log("Play failed: ", error);
+          });
+        }
+      }
 
-// Handle focus and blur events to manage audio
-function handleFocusBlur() {
-  const audio = document.getElementById("myAudio");
+      // Handle focus and blur events to manage audio
+      function handleFocusBlur() {
+        const audio = document.getElementById("myAudio");
 
-  window.addEventListener('blur', () => {
-    audio.pause();
-  });
+        window.addEventListener("blur", () => {
+          audio.pause();
+        });
 
-  window.addEventListener('focus', () => {
-    if (audio.paused) {
-      audio.play().catch((error) => {
-        console.log("Play failed: ", error);
-      });
-    }
-  });
-}
+        window.addEventListener("focus", () => {
+          if (audio.paused) {
+            audio.play().catch((error) => {
+              console.log("Play failed: ", error);
+            });
+          }
+        });
+      }
 
-// Initialize everything
-window.onload = () => {
-  handleSplashScreen();
-  document.addEventListener('visibilitychange', handleVisibilityChange);
-  handleFocusBlur();
-};
-
+      // Initialize everything
+      window.onload = () => {
+        handleSplashScreen();
+        document.addEventListener("visibilitychange", handleVisibilityChange);
+        handleFocusBlur();
+      };
     </script>
   </body>
 </html>
